@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MatchController;
 use App\Http\Controllers\PlayerController;
 
 /*
@@ -46,10 +47,13 @@ Route::get('/admin/profile', function () {
     return view('admin.profile');
 })->name('admin_profile');
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('players', PlayerController::class);
+    Route::resource('matches', MatchController::class);
 });
 
 Auth::routes();
 
 Route::get('/admin/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('admin_dashboard');
+
+

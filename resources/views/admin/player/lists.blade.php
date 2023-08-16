@@ -48,6 +48,8 @@
                                             <th class="border-top-0">Description</th>
                                             <th class="border-top-0">No</th>
                                             <th class="border-top-0">Height</th>
+                                            <th class="border-top-0">Date Of Birth</th>
+                                            <th class="border-top-0">Preferred foot</th>
                                             <th class="border-top-0">Image</th>
                                             <th class="border-top-0">Action</th>
                                         </tr>
@@ -56,11 +58,20 @@
                                         @foreach ($all_players as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->position }}</td>
+                                                <td>
+                                                    @foreach ($item->positions as $key => $value)
+                                                        {{ $value }}
+                                                        @if ($key < count($item->positions) - 1)
+                                                        /
+                                                        @endif
+                                                    @endforeach
+                                                </td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>{{ $item->no }}</td>
                                                 <td>{{ $item->height }}</td>
+                                                <td>{{ $item->dob }}</td>
+                                                <td>{{ $item->preferred_foot }}</td>
                                                 <td>
                                                     @if($item->image)
                                                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
@@ -84,6 +95,9 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <div class="pagination">
+                        {{ $all_players->links('pagination.custom') }}
                     </div>
                 </div>
             </div>

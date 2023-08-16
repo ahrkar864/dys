@@ -13,8 +13,6 @@
         </div>
     </div>
 
-  
-  
     <div class="container">
         
 
@@ -52,8 +50,6 @@
         </div>
     </div>
 
-
-  
     <div class="site-section bg-dark">
         <div class="container">
         
@@ -370,4 +366,5 @@
         </div>
         </div>
     </div>
+    
 @endsection

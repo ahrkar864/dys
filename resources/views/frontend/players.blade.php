@@ -28,6 +28,7 @@
                         <a href="{{ route('playersdetails', $all_player->id)}}"><img src="{{ asset('storage/' . $all_player->image) }}" alt="Image" class="img-fluid"></a>
                     </div>
                     <div class="text">
+                        <h3><a href="{{ route('playersdetails', $all_player->id)}}">{{ $all_player->name }}</a></h3>
                         <span class="meta">
                             @foreach ($all_player->positions as $key => $item)
                                 {{ $item }}
@@ -36,7 +37,6 @@
                                 @endif
                             @endforeach
                         </span>
-                        <h3 class="mb-4"><a href="{{ route('playersdetails', $all_player->id)}}">{{ $all_player->name }}</a></h3>
                         <p><a href="{{ route('playersdetails', $all_player->id)}}">Read more</a></p>
                     </div>
                     </div>
@@ -45,13 +45,9 @@
         </div>
 
         <div class="row justify-content-center">
-        <div class="col-lg-7 text-center">
+        <div class="text-center">
             <div class="custom-pagination">
-            <a href="#">1</a>
-            <span>2</span>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
+                {{ $all_players->links('pagination.custom') }}
             </div>
         </div>
         </div>

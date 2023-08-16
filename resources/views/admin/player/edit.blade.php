@@ -13,7 +13,7 @@
                             @method('PUT')
                             <!-- Name -->
                             <div class="form-group">
-                                <label class="col-md-12">Name</label>
+                                <label class="player col-md-12">Name</label>
                                 <div class="col-md-12">
                                     <input type="text" name="name" class="form-control" value="{{ old('name', $player->name) }}" required>
                                 </div>
@@ -21,15 +21,21 @@
 
                             <!-- Position -->
                             <div class="form-group">
-                                <label class="col-md-12">Position</label>
+                                <label class="player col-md-12">Position</label>
                                 <div class="col-md-12">
-                                    <input type="text" name="position" class="form-control" value="{{ old('position', $player->position) }}" required>
-                                </div>
+                                    @foreach ($playerPositions as $position)
+                                        <div class="form-check col-md-3">
+                                            <input type="checkbox" name="positions[]" value="{{ $position }}" class="form-check-input"
+                                                {{ in_array($position, old('positions', $player->positions ?? [])) ? 'checked' : '' }}>
+                                            <label class="form-check-label">{{ $position }}</label>
+                                        </div>
+                                    @endforeach
+                                </div>                             
                             </div>
 
                             <!-- Phone Number -->
                             <div class="form-group">
-                                <label class="col-md-12">Phone No</label>
+                                <label class="player col-md-12">Phone No</label>
                                 <div class="col-md-12">
                                     <input type="text" name="phone" class="form-control" value="{{ old('phone', $player->phone) }}" required>
                                 </div>
@@ -37,7 +43,7 @@
 
                             <!-- About Player -->
                             <div class="form-group">
-                                <label class="col-md-12">About Player</label>
+                                <label class="player col-md-12">About Player</label>
                                 <div class="col-md-12">
                                     <textarea name="description" class="form-control" rows="5" required>{{ old('description', $player->description) }}</textarea>
                                 </div>
@@ -45,22 +51,41 @@
 
                             <!-- No -->
                             <div class="form-group">
-                                <label class="col-md-12">No</label>
+                                <label class="player col-md-12">No</label>
                                 <div class="col-md-12">
                                     <input type="text" name="no" class="form-control" value="{{ old('no', $player->no) }}" required>
                                 </div>
                             </div>
 
-                            <!-- Height -->
                             <div class="form-group">
-                                <label class="col-md-12">Height</label>
+                                <label class="player col-md-12">Height</label>
                                 <div class="col-md-12">
                                     <input type="text" name="height" class="form-control" value="{{ old('height', $player->height) }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="col-md-12 mb-0">Image</label>
+                                <label class="player col-md-12 mb-0" for="dob">Date of Birth*</label>
+                                <div class="col-md-12">
+                                    <input type="date" name="dob" class="form-control" placeholder="Select date of birth"
+                                           value="{{ old('dob', $player->dob ?? '') }}">
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <label class="player col-md-12 mb-0" for="preferred_foot">Preferred Foot*</label>
+                                <div class="col-md-12">
+                                    <select name="preferred_foot" class="form-control">
+                                        <option value="left" {{ old('preferred_foot', $player->preferred_foot) === 'left' ? 'selected' : '' }}>Left</option>
+                                        <option value="right" {{ old('preferred_foot', $player->preferred_foot) === 'right' ? 'selected' : '' }}>Right</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <label for="player col-md-12 mb-0">Image</label>
                                 <div class="col-md-12">
                                     <input type="file" name="image" class="form-control-file">
                                     <div>

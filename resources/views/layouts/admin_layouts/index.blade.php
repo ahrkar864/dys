@@ -23,6 +23,7 @@
     <link href="{{ asset('dashboard/assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('dashboard/css/style.min.css') }}" rel="stylesheet">
+    
     <style>
         .dys_logo {
             width: 50px;
@@ -153,7 +154,11 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('players.index') }}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                     class="hide-menu">Players</span></a>
-                        </li>             
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{ route('matches.index')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                class="hide-menu">Matches</span></a>
+                        </li>         
                     </ul>
 
                 </nav>

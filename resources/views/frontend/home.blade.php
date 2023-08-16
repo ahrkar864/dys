@@ -7,11 +7,10 @@
       <div class="row align-items-center">
         <div class="col-lg-5 ml-auto">
           <h1 class="text-white">Dagon Youth Star Football Club</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae pariatur.</p>
-          <div id="date-countdown"></div>
+          <p>We are DYS(since 2017)</p>
+          {{-- <div id="date-countdown"></div> --}}
           <p>
-            <a href="#" class="btn btn-primary py-3 px-4 mr-3">Book Ticket</a>
-            <a href="#" class="more light">Learn More</a>
+            <a href="#" class="btn btn-primary py-3 px-4 mr-3">More About Details</a>
           </p>  
         </div>
       </div>
@@ -28,25 +27,22 @@
           <span class="score">4-1</span>
           <div class="team-1 w-50">
             <div class="team-details w-100 text-center">
-              <img src="images/logo_1.png" alt="Image" class="img-fluid">
-              <h3>LA LEGA <span>(win)</span></h3>
+              <img src="{{ asset('dashboard/assets/images/dys.jpg') }}" alt="Image" class="img-fluid" style="width:50px;">
+              <h3>Dagon Youth Star <span>(win)</span></h3>
               <ul class="list-unstyled">
-                <li>Anja Landry (7)</li>
-                <li>Eadie Salinas (12)</li>
-                <li>Ashton Allen (10)</li>
-                <li>Baxter Metcalfe (5)</li>
+                <li>Ahrkar kyaw</li>
+                <li>Khant Maw Oo</li>
+                <li>Soe Min Htet</li>
+                <li>Htin lin Oo</li>
               </ul>
             </div>
           </div>
           <div class="team-2 w-50">
             <div class="team-details w-100 text-center">
-              <img src="images/logo_2.png" alt="Image" class="img-fluid">
+              <img src="images/logo_2.png" alt="Image" class="img-fluid" style="width:50px;">
               <h3>JUVENDU <span>(loss)</span></h3>
               <ul class="list-unstyled">
                 <li>Macauly Green (3)</li>
-                <li>Arham Stark (8)</li>
-                <li>Stephan Murillo (9)</li>
-                <li>Ned Ritter (5)</li>
               </ul>
             </div>
           </div>
@@ -128,7 +124,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
   
@@ -159,11 +154,11 @@
             </div>
 
             <div class="text-center widget-vs-contents mb-4">
-              <h4>World Cup League</h4>
+              <h4>Daily match</h4>
               <p class="mb-5">
                 <span class="d-block">December 20th, 2020</span>
-                <span class="d-block">9:30 AM GMT+0</span>
-                <strong class="text-primary">New Euro Arena</strong>
+                <span class="d-block">6:00 AM</span>
+                <strong class="text-primary">Yangon , Alon</strong>
               </p>
 
               <div id="date-countdown2" class="pb-1"></div>
@@ -176,8 +171,8 @@
             <table class="table custom-table">
               <thead>
                 <tr>
-                  <th>P</th>
-                  <th>Team</th>
+                  <th>No</th>
+                  <th>Previous Matches</th>
                   <th>W</th>
                   <th>D</th>
                   <th>L</th>
@@ -188,62 +183,6 @@
                 <tr>
                   <td>1</td>
                   <td><strong class="text-white">Football League</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><strong class="text-white">Soccer</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><strong class="text-white">Juvendo</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><strong class="text-white">French Football League</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td><strong class="text-white">Legia Abante</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td><strong class="text-white">Gliwice League</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td><strong class="text-white">Cornika</strong></td>
-                  <td>22</td>
-                  <td>3</td>
-                  <td>2</td>
-                  <td>140</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td><strong class="text-white">Gravity Smash</strong></td>
                   <td>22</td>
                   <td>3</td>
                   <td>2</td>

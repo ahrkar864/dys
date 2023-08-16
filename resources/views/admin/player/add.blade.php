@@ -24,7 +24,7 @@
         <!-- Row -->
         <div class="row">
             <!-- Column -->
-            <div class="col-lg-12 col-xlg-9 col-md-7">
+            <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('players.store') }}" enctype="multipart/form-data">
