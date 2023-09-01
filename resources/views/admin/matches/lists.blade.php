@@ -37,25 +37,40 @@
                                 <table class="table user-table">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">Score Player</th>
+                                            <th class="border-top-0">Score Player(s)</th>
                                             <th class="border-top-0">Vs Team Name</th>
-                                            <th class="border-top-0">Vs Team Logo Photo</th>
-                                            <th class="border-top-0">Place</th>
-                                            <th class="border-top-0">Stadium</th>
-                                            <th class="border-top-0">Time</th>
-                                            <th class="border-top-0">Result</th>
+                                            <th class="border-top-0">Place(Stadium)</th>
+                                            <th class="border-top-0">Time(Date and Time)</th>
+                                            <th class="border-top-0">Take Goals</th>
+                                            <th class="border-top-0">Give Goals</th>
+                                            <th class="border-top-0">Image</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($all_matches as $item)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>       
+                                            <td>
+                                                {{-- @foreach($item->score_player as $key => $value)
+                                                    {{ $value }}
+                                                    @if ($key < count($item->score_player) - 1)
+                                                    /
+                                                    @endif
+                                                @endforeach --}}
+                                            </td>
+                                            <td>{{ $item->vs_team_name }}</td>
+                                            <td>{{ $item->place }}</td>
+                                            <td>{{ $item->datetime }}</td>
+                                            <td>{{ $item->take_goal }}</td>
+                                            <td>{{ $item->give_goal }}</td>
+                                            <td>
+                                                @if($item->image)
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
+                                                @else
+                                                    No Image
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach       
                                     </tbody>
                                 </table>
                             </div>

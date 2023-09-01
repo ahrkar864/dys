@@ -47,6 +47,10 @@ Route::get('/admin/profile', function () {
     return view('admin.profile');
 })->name('admin_profile');
 
+// Route::get('/login', function () {
+//     return view('auth.login');
+// })->name('admin_login');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('players', PlayerController::class);
     Route::resource('matches', MatchController::class);

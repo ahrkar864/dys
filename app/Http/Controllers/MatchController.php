@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Match;
+use App\Models\Players;
 use Illuminate\Http\Request;
 
 class MatchController extends Controller
@@ -13,7 +15,8 @@ class MatchController extends Controller
      */
     public function index()
     {
-        return view("admin.matches.lists");
+        $all_matches = Match::all();
+        return view("admin.matches.lists", compact('all_matches'));
     }
 
     /**
@@ -23,7 +26,8 @@ class MatchController extends Controller
      */
     public function create()
     {
-        return view("admin.matches.add");
+        $all_players = Players::all();
+        return view("admin.matches.add", compact('all_players'));
     }
 
     /**
@@ -34,7 +38,34 @@ class MatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            // 'score_player' => 'required|array',
+            'place' => 'required|string|max:255',
+            'datetime' => 'required|date_format:Y-m-d\TH:i',
+            'take_goal' => 'required|string|max:10',
+            'give_goal' => 'required|string|max:10',
+            'image' => 'mimes:jpeg,jpg,png,gif'
+        ]);
+
+        if ($request->hasFile('image')) { 
+            $imagePath = $request->file('image')->store('matches', 'public');    
+            $validatedData['image'] = $imagePath;
+        }
+
+        $match = new Match([
+            'score_player' => $request->score_player,
+            'vs_team_name' => $request->vs_team_name,
+            'place' => $validatedData['place'],
+            'datetime' => $validatedData['datetime'],
+            'take_goal' => $validatedData['take_goal'],
+            'give_goal' =>  $validatedData['give_goal'],
+            'image' => $validatedData['image'] ?? null,
+        ]);
+
+        $match->save();
+
+        return redirect()->route('matches.index');
     }
 
     /**

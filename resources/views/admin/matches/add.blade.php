@@ -27,48 +27,67 @@
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material mx-2" method="POST" action="" enctype="multipart/form-data">
+                        <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('matches.store')}}" enctype="multipart/form-data">
                             @csrf
+
                             <div class="form-group">
-                                <label class="player col-md-12 mb-0">Score Players*</label>
+                                <label class="player col-md-12 mb-0">Score Players</label>
                                 <div class="col-md-12">
-                                    <input type="text"
-                                        name="score_players" class="form-control ps-0 form-control-line" value="">
+                                    @foreach ($all_players as $item)
+                                    <label><input type="checkbox" name="score_player[]" value="{{ $item->name }}">{{ $item->name }}</label><br>
+                                    @endforeach
                                 </div>
-                            </div>
+                            </div>                                                 
                             <div class="form-group">
-                                <label class="player col-md-12 mb-0">Vs Team Name*</label>
+                                <label class="player col-md-12 mb-0">Vs Team Name</label>
                                 <div class="col-md-12">
                                     <input type="text"
                                         name="vs_team_name" class="form-control ps-0 form-control-line" value="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="player col-md-12 mb-0">Place*</label>
+                                <label class="player col-md-12 mb-0">Place(stadium)*</label>
                                 <div class="col-md-12">
                                     <input type="text"
-                                        name="place" class="form-control ps-0 form-control-line" value="">
+                                        name="place" class="form-control ps-0 form-control-line @error('place') is-invalid @enderror" value="">
+                                    @error('place')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="player col-md-12 mb-0">Stadium*</label>
+                                <label class="player col-md-12 mb-0">Date and Time*</label>
                                 <div class="col-md-12">
-                                    <input type="text"
-                                        name="stadium" class="form-control ps-0 form-control-line" value="">
+                                    <input type="datetime-local" name="datetime" class="form-control ps-0 form-control-line @error('datetime') is-invalid @enderror" value="">
+                                    @error('datetime')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>                            
+                            <div class="form-group">
+                                <label class="player col-md-12 mb-0">Take Goals</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="take_goal" class="form-control ps-0 form-control-line @error('given_goal') is-invalid @enderror"  value="">
+                                    @error('given_goal')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="player col-md-12 mb-0">Time*</label>
+                                <label class="player col-md-12 mb-0">Give Goals</label>
                                 <div class="col-md-12">
-                                    <input type="text"
-                                        name="time" class="form-control ps-0 form-control-line" value="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="player col-md-12 mb-0">Result*</label>
-                                <div class="col-md-12">
-                                    <input type="text"
-                                        name="result" class="form-control ps-0 form-control-line" value="">
+                                    <input type="text" name="give_goal" class="form-control ps-0 form-control-line @error('take_goal') is-invalid @enderror" value="">
+                                    @error('take_goal')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
