@@ -161,7 +161,7 @@ class PlayerController extends Controller
 
         $player = Players::findOrFail($id);
     
-        // Update player attributes
+        // Update player 
         $player->name = $validatedData['name'];
         $player->positions = $validatedData['positions'];
         $player->phone = $validatedData['phone'];
@@ -200,7 +200,7 @@ class PlayerController extends Controller
         $player->delete();
 
         return redirect()->route('players.index')
-            ->with('success'. 'Player deleted successfully.');
+            ->with('deletesuccess'. 'Player deleted successfully.');
     }
 
     public function details($id){

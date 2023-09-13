@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Match;
 use App\Models\Players;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MatchController extends Controller
 {
@@ -40,7 +41,7 @@ class MatchController extends Controller
     {
 
         $validatedData = $request->validate([
-            // 'score_player' => 'required|array',
+            'vs_team_name' => 'required|string|max:255',
             'place' => 'required|string|max:255',
             'datetime' => 'required|date_format:Y-m-d\TH:i',
             'take_goal' => 'required|string|max:10',
@@ -55,7 +56,7 @@ class MatchController extends Controller
 
         $match = new Match([
             'score_player' => $request->score_player,
-            'vs_team_name' => $request->vs_team_name,
+            'vs_team_name' => $validatedData['vs_team_name'],
             'place' => $validatedData['place'],
             'datetime' => $validatedData['datetime'],
             'take_goal' => $validatedData['take_goal'],
@@ -63,9 +64,10 @@ class MatchController extends Controller
             'image' => $validatedData['image'] ?? null,
         ]);
 
+
         $match->save();
 
-        return redirect()->route('matches.index');
+        return redirect()->route('matches.index')->with('success', 'Match added successfully.');
     }
 
     /**
@@ -74,9 +76,12 @@ class MatchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // $all_matches = Match::orderBy('created_at', 'desc')->paginate(6);
+        $all_matches = Match::all();
+
+        return view("frontend.matches", compact('all_matches'));
     }
 
     /**
@@ -87,7 +92,9 @@ class MatchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $all_players = Players::all();
+        $match = Match::findOrFail($id);
+        return view('admin.matches.edit', compact('match', 'all_players')); 
     }
 
     /**
@@ -99,7 +106,34 @@ class MatchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'vs_team_name' => 'required|string|max:255',
+            'place' => 'required|string|max:255',
+            'datetime' => 'required|date_format:Y-m-d\TH:i',
+            'take_goal' => 'required|string|max:10',
+            'give_goal' => 'required|string|max:10',
+            'image' => 'mimes:jpeg,jpg,png,gif'
+        ]);
+
+        $match = Match::findOrFail($id);
+
+        // Update match
+        $match->score_player = $request->score_player;
+        $match->vs_team_name = $validatedData['vs_team_name'];
+        $match->place = $validatedData['place'];
+        $match->datetime = $validatedData['datetime'];
+        $match->give_goal = $validatedData['give_goal'];
+        $match->take_goal = $validatedData['take_goal'];
+
+        if ($request->hasFile('image')) { 
+            $imagePath = $request->file('image')->store('matches', 'public');    
+            $validatedData['image'] = $imagePath;
+        }
+
+        $match->save();
+
+        return redirect()->route('matches.index')->with('success', 'Match updated successfully');
+
     }
 
     /**
@@ -110,6 +144,12 @@ class MatchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $match = Match :: findorFail($id);
+        if( $match->image ){
+            Storage::disk('public')->delete($match->image);
+        }
+
+        $match->delete();
+        return redirect()->route('matches.index')->with('success'. 'Match deleted successfully.');
     }
 }

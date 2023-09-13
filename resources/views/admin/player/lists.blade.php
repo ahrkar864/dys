@@ -15,11 +15,14 @@
                             class="btn btn-success d-none d-md-inline-block text-white">Add new player</a>
                     </div>
                 </div>
+
                 @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
+                    <div class="col-6 offset-3 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('success') }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
             </div>
         </div>
 
@@ -65,6 +68,7 @@
                                                         /
                                                         @endif
                                                     @endforeach
+                                                    {{-- {{ $item->positions }} --}}
                                                 </td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->description }}</td>

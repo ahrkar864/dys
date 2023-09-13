@@ -32,7 +32,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/players',[PlayerController::class, 'show'])->name('players');
-
+Route::get('/matches',[MatchController::class, 'show'])->name('matches');
 Route::get('/players/details/{id}', [PlayerController::class, 'details'])->name('playersdetails');
 
 Route::get('/admin/player/list', function () {

@@ -46,10 +46,15 @@
                                 <div class="col-md-12">
                                     @foreach ($playerPositions as $position)
                                         <div class="form-check col-md-3">
-                                            <input type="checkbox" name="positions[]" value="{{ $position }}" class="form-check-input">
+                                            <input type="checkbox" name="positions[]" value="{{ $position }}" class="form-check-input @error('positions') is-invalid @enderror" {{ in_array($position, old('positions', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label">{{ $position }}</label>
                                         </div>
                                     @endforeach
+                                    @error('positions')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -100,7 +105,12 @@
                             <div class="form-group">
                                 <label class="player col-md-12 mb-0" for="dob">Date of Birth*</label>
                                 <div class="col-md-12">
-                                    <input type="date" name="dob" class="form-control" placeholder="Select date of birth">
+                                    <input type="date" name="dob" class="form-control @error('dob') is-invalid @enderror" placeholder="Select date of birth">
+                                    @error('dob')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -110,13 +120,23 @@
                                         <option value="left">Left</option>
                                         <option value="right">Right</option>
                                     </select>
+                                    @error('preferred_foot')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                                                  
                             <div class="form-group">
                                 <label class="player" for="col-md-12 mb-0">Image</label>
                                 <div class="col-md-12">
-                                    <input type="file" name="image" class="form-control-file">
+                                    <input type="file" name="image" class="form-control-file @error('image') is-invalid @enderror">
+                                    @error('image')
+                                        <p class="danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </p>
+                                    @enderror
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Add Player</button>

@@ -12,8 +12,6 @@
         </div>
     </div>
 
-  
-  
     <div class="container site-section">
         <div class="row">
         <div class="col-6 title-section">
