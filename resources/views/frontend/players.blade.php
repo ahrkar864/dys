@@ -23,7 +23,15 @@
                 <div class="col-lg-4 mb-4">
                     <div class="custom-media d-block">
                     <div class="img mb-4">
-                        <a href="{{ route('playersdetails', $all_player->id)}}"><img src="{{ asset('storage/' . $all_player->image) }}" alt="Image" class="img-fluid"></a>
+                    @if (!empty($all_player->image) && strpos($all_player->image, 'http') === 0)
+                        <a href="{{ route('playersdetails', $all_player->id) }}"><img src="{{ $all_player->image }}" alt="Image" class="img-fluid"></a>
+                    @elseif (!empty($all_player->image))
+                        <a href="{{ route('playersdetails', $all_player->id) }}"><img src="{{ asset('storage/' . $all_player->image) }}" alt="Image" class="img-fluid"></a>
+                    @else
+                        <a href="{{ route('playersdetails', $all_player->id) }}"><img src="{{ asset('storage/images.jpg') }}" alt="No Image" class="img-fluid"></a>
+                    @endif
+                    
+
                     </div>
                     <div class="text">
                         <h3><a href="{{ route('playersdetails', $all_player->id)}}">{{ $all_player->name }}</a></h3>

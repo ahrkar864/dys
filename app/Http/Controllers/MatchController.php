@@ -152,4 +152,5 @@ class MatchController extends Controller
         $match->delete();
         return redirect()->route('matches.index')->with('success'. 'Match deleted successfully.');
     }
+
 }

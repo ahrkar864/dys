@@ -5,7 +5,7 @@
 <div class="site-section">
     <div class="container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-12 login">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="row mb-3">

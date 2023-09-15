@@ -110,13 +110,7 @@
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            {{-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('dashboard/assets/images/users/1.jpg') }}" alt="user" class="profile-pic me-2">Markarn Doe
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul> --}}
-
-                            
+                        <li class="nav-item dropdown">           
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -158,7 +152,11 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{ route('matches.index')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                 class="hide-menu">Matches</span></a>
-                        </li>         
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{ route('blogs.index')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                class="hide-menu">Blogs</span></a>
+                        </li>   
                     </ul>
 
                 </nav>

@@ -6,8 +6,8 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 mx-auto text-center">
-          <h1 class="text-white">Players</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae pariatur.</p>
+          <h1 class="text-white">Blogs</h1>
+          <p>Happily DYS Family</p>
         </div>
       </div>
     </div>
