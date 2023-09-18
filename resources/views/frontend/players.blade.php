@@ -31,7 +31,6 @@
                         <a href="{{ route('playersdetails', $all_player->id) }}"><img src="{{ asset('storage/images.jpg') }}" alt="No Image" class="img-fluid"></a>
                     @endif
                     
-
                     </div>
                     <div class="text">
                         <h3><a href="{{ route('playersdetails', $all_player->id)}}">{{ $all_player->name }}</a></h3>

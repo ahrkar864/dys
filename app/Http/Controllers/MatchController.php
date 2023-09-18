@@ -17,6 +17,7 @@ class MatchController extends Controller
     public function index()
     {
         $all_matches = Match::all();
+        
         return view("admin.matches.lists", compact('all_matches'));
     }
 
@@ -80,8 +81,8 @@ class MatchController extends Controller
     {
         // $all_matches = Match::orderBy('created_at', 'desc')->paginate(6);
         $all_matches = Match::all();
-
-        return view("frontend.matches", compact('all_matches'));
+        $lastMatch = Match::latest()->first();
+        return view("frontend.matches", compact('all_matches','lastMatch'));
     }
 
     /**
