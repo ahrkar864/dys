@@ -14,7 +14,7 @@
         </div>
     </div>
     {{-- @foreach ($all_matches as $matches) --}}
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
             <div class="col-lg-12">
                 
@@ -47,7 +47,7 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div> --}}
         <div class="site-section bg-dark">
             <div class="container">
                 <div class="row">
@@ -75,10 +75,10 @@
                                             <img class="site-logo-img" src="{{ asset('storage/' . $matches->image) }}" alt="Image">
                                             <h3>{{ $matches->vs_team_name }}</h3>
                                             <ul class="list-unstyled">
-                                                <li>Macauly Green (3)</li>
-                                                <li>Arham Stark (8)</li>
-                                                <li>Stephan Murillo (9)</li>
-                                                <li>Ned Ritter (5)</li>
+                                                <li>.</li>
+                                                <li>.</li>
+                                                <li>.</li>
+                                                <li>.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -102,7 +102,13 @@
                     @endif
 
                 </div>
-
+                <div class="row justify-content-center">
+                    <div class="text-center">
+                        <div class="custom-pagination">
+                            {{ $all_matches->links('pagination.custom') }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     {{-- @endforeach --}}
