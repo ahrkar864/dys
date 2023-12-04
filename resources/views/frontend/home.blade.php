@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="hero overlay" style="background-image: url('images/bg_3.jpg');">
+<div class="hero overlay" style="background-image: url('{{ asset('frontend/images/bg_3.jpg') }}');">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 ml-auto">
@@ -11,18 +11,18 @@
           {{-- <div id="date-countdown"></div> --}}
           <p>
             <a href="#" class="btn btn-primary py-3 px-4 mr-3">More About Details</a>
-          </p>  
+          </p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="container">
-    
+
 
     <div class="row">
       <div class="col-lg-12">
-        
+
         <div class="d-flex team-vs">
           <span class="score">4-1</span>
           <div class="team-1 w-50">
@@ -78,7 +78,7 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -99,7 +99,7 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -120,13 +120,13 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="site-section bg-dark">
     <div class="container">
       <div class="row">
@@ -166,7 +166,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          
+
           <div class="widget-next-match">
             <table class="table custom-table">
               <thead>
@@ -334,5 +334,5 @@
       </div>
     </div>
   </div>
-  
+
 @endsection

@@ -49,7 +49,7 @@ class PlayersSeeder extends Seeder
             'preferred_foot' => 'right',
             'image' => 'https://i.ibb.co/b67xbDw/unnamed-1.jpg'
         ]);
-  
+
         DB::table('players')->insert([
             'name' => 'Aung Khant Kyaw',
             'positions' => json_encode(['Midfielder - Central Midfield','Midfielder - Defensive Midfield','Midfielder - Right Midfield',
@@ -161,7 +161,7 @@ class PlayersSeeder extends Seeder
             'preferred_foot' => 'right',
             'image' => ''
         ]);
-        
+
 
         DB::table('players')->insert([
             'name' => 'Htin Lin Oo',

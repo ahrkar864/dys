@@ -58,12 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 });
 
 Auth::routes();
+Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
+Route::get('/user/dashboard', [UserController::class, 'index'])->name('user_dashboard');
 
-Route::middleware(['auth', 'checkUserRole'])->group(function () {
-    Route::get('/user/dahboard', [UserController::class, 'index']);
-});
 
-Route::middleware(['auth', 'checkUserRole:admin'])->group(function () {
-    Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
-});
 

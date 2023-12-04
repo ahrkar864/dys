@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Match;
+use App\Models\Matches;
 use App\Models\Players;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +16,7 @@ class MatchController extends Controller
      */
     public function index()
     {
-        $all_matches = Match::all();
-        
+        $all_matches = Matches::all();
         return view("admin.matches.lists", compact('all_matches'));
     }
 
@@ -50,12 +49,12 @@ class MatchController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif'
         ]);
 
-        if ($request->hasFile('image')) { 
-            $imagePath = $request->file('image')->store('matches', 'public');    
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('matches', 'public');
             $validatedData['image'] = $imagePath;
         }
 
-        $match = new Match([
+        $match = new Matches([
             'score_player' => $request->score_player,
             'vs_team_name' => $validatedData['vs_team_name'],
             'place' => $validatedData['place'],
@@ -80,8 +79,8 @@ class MatchController extends Controller
     public function show()
     {
         // $all_matches = Match::orderBy('created_at', 'desc')->paginate(6);
-        $all_matches = Match::paginate(4);
-        $lastMatch = Match::latest()->first();
+        $all_matches = Matches::paginate(4);
+        $lastMatch = Matches::latest()->first();
         return view("frontend.matches", compact('all_matches','lastMatch'));
     }
 
@@ -94,8 +93,8 @@ class MatchController extends Controller
     public function edit($id)
     {
         $all_players = Players::all();
-        $match = Match::findOrFail($id);
-        return view('admin.matches.edit', compact('match', 'all_players')); 
+        $match = Matches::findOrFail($id);
+        return view('admin.matches.edit', compact('match', 'all_players'));
     }
 
     /**
@@ -116,7 +115,7 @@ class MatchController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif'
         ]);
 
-        $match = Match::findOrFail($id);
+        $match = Matches::findOrFail($id);
 
         // Update match
         $match->score_player = $request->score_player;
@@ -126,8 +125,8 @@ class MatchController extends Controller
         $match->give_goal = $validatedData['give_goal'];
         $match->take_goal = $validatedData['take_goal'];
 
-        if ($request->hasFile('image')) { 
-            $imagePath = $request->file('image')->store('matches', 'public');    
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('matches', 'public');
             $validatedData['image'] = $imagePath;
         }
 
@@ -145,7 +144,7 @@ class MatchController extends Controller
      */
     public function destroy($id)
     {
-        $match = Match :: findorFail($id);
+        $match = Matches:: findorFail($id);
         if( $match->image ){
             Storage::disk('public')->delete($match->image);
         }
