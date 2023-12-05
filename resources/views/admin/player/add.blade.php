@@ -126,8 +126,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                                                 
+                            </div>       
                             <div class="form-group">
                                 <label class="player" for="col-md-12 mb-0">Image</label>
                                 <div class="col-md-12">

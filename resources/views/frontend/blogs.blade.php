@@ -6,15 +6,13 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 mx-auto text-center">
-          <h1 class="text-white">Blogs</h1>
-          <p>Happily DYS Family</p>
+          <h1 class="text-white">Happily DYS Family</h1>
         </div>
       </div>
     </div>
   </div>
 
-  
-  
+
   <div class="site-section">
     <div class="container">
       <div class="row">
@@ -118,12 +116,9 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-
-  
   <div class="container site-section">
     <div class="row">
       <div class="col-6 title-section">
@@ -133,27 +128,11 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="custom-media d-flex">
-          <div class="img mr-4">
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-          </div>
           <div class="text">
             <span class="meta">May 20, 2020</span>
             <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-            <p><a href="#">Read more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="custom-media d-flex">
-          <div class="img mr-4">
-            <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-          </div>
-          <div class="text">
-            <span class="meta">May 20, 2020</span>
-            <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-            <p><a href="#">Read more</a></p>
+            <p><a href="{{ route('blogdetails') }}">Read More</a></p>
           </div>
         </div>
       </div>

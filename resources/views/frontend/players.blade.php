@@ -5,8 +5,7 @@
         <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 mx-auto text-center">
-            <h1 class="text-white">Our Players</h1>
-            <p>All of Our Owns</p>
+            <h1 class="text-white">All of Our Owns</h1>
             </div>
         </div>
         </div>

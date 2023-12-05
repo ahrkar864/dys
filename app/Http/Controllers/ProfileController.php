@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.lists');
+        return view("admin.profile");
     }
 
     /**
@@ -23,7 +23,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view("admin.blog.add");
+        //
     }
 
     /**
@@ -35,13 +35,6 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         dd($request);
-
-        // $validatedData = $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'about' => 'required|string|max:255',
-        //     'date' => 'required|date',
-        //     'video' => 'required|string|max:255' 
-        // ]);
     }
 
     /**

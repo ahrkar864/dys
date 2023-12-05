@@ -46,14 +46,6 @@
                                     <thead>
                                         <tr>
                                             <th class="border-top-0">Name</th>
-                                            <th class="border-top-0">Postion</th>
-                                            <th class="border-top-0">Ph</th>
-                                            <th class="border-top-0">Description</th>
-                                            <th class="border-top-0">No</th>
-                                            <th class="border-top-0">Height</th>
-                                            <th class="border-top-0">Date Of Birth</th>
-                                            <th class="border-top-0">Preferred foot</th>
-                                            <th class="border-top-0">Image</th>
                                             <th class="border-top-0">Action</th>
                                         </tr>
                                     </thead>
@@ -61,7 +53,7 @@
                                         @foreach ($all_players as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     @foreach ($item->positions as $key => $value)
                                                         {{ $value }}
                                                         @if ($key < count($item->positions) - 1)
@@ -69,25 +61,20 @@
                                                         @endif
                                                     @endforeach
                                                     {{-- {{ $item->positions }} --}}
-                                                </td>
-                                                <td>{{ $item->phone }}</td>
-                                                <td>{{ $item->description }}</td>
-                                                <td>{{ $item->no }}</td>
-                                                <td>{{ $item->height }}</td>
-                                                <td>{{ $item->dob }}</td>
-                                                <td>{{ $item->preferred_foot }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     @if($item->image)
                                                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
                                                     @else
                                                         No Image
                                                     @endif
-                                                </td>
+                                                </td> --}}
                                                 <td>
-                                                    <a href="{{ route('players.edit', $item->id) }}" class="btn btn-default">Edit</a> 
+                                                    {{-- <a href="{{ route('playersdetails', $all_player->id)}}" class="btn btn-success"><i class="fas fa-eye"></i></a> --}}
+                                                    <a href="" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                                    <a href="{{ route('players.edit', $item->id) }}" class="btn btn-default"> <i class="fas fa-edit"></i> </a> 
                                                     <a href="{{ route('players.destroy', $item->id) }}"
                                                         onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this player?')){ document.getElementById('delete-form-{{ $item->id }}').submit(); }"
-                                                        class="btn btn-danger">Delete</a>
+                                                        class="btn btn-danger"><i class="fas fa-trash"></i> </a>
                                                     <form id="delete-form-{{ $item->id }}" action="{{ route('players.destroy', $item->id) }}" method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')

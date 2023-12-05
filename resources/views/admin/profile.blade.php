@@ -42,75 +42,118 @@
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal form-material mx-2">
+                        <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('blogs.store')}}" enctype="myltipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Email</label>
                                 <div class="col-md-12">
-                                    <input type="email" placeholder="" class="form-control ps-0 form-control-line">
+                                    <input type="email" name="email" placeholder="" class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Address</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="" class="form-control ps-0 form-control-line">
+                                    <input type="text" name="address" placeholder="" class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Football Club Name</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="name" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Football Club Caption</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="caption" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Phone No</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="phone" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Home Image</label>
                                 <div class="col-md-12">
-                                    <input type="file" placeholder=""
-                                        class="form-control ps-0 form-control-line">
+                                    <input type="file"
+                                        name="coverimage" class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Logo Image</label>
                                 <div class="col-md-12">
-                                    <input type="file" placeholder=""
+                                    <input type="file" name="logoimage"
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Facebook Link</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="facebooklink" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Telegram Link</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="telegramlink" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12 mb-0">Youtube Link</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder=""
+                                    <input type="text" name="youtubelink" placeholder=""
                                         class="form-control ps-0 form-control-line">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Copyright</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="copyright" placeholder=""
+                                        class="form-control ps-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">About Caption</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="aboutcaption" placeholder=""
+                                        class="form-control ps-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Matches Caption</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="matchescaption" placeholder=""
+                                        class="form-control ps-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Blogs Caption</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="blogscaption" placeholder=""
+                                        class="form-control ps-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">Players Caption</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="playerscaption" placeholder=""
+                                        class="form-control ps-0 form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 mb-0">About</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" name="description" placeholder="" class="form-control ps-0 form-control-line"></textarea>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Edit Club information</button>
                         </form>
                     </div>
                 </div>

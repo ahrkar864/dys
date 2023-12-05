@@ -58,7 +58,6 @@ class PlayerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-
     {     
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',

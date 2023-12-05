@@ -142,11 +142,7 @@
                                 href="{{ route('admin_dashboard') }}" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('admin_profile')}} " aria-expanded="false">
-                                <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{ route('players.index') }}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                href="{{ route('players.index') }}" aria-expanded="false"><i class="mdi me-2 mdi-account-check"></i><span
                                     class="hide-menu">Players</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -156,7 +152,22 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{{ route('blogs.index')}}" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                 class="hide-menu">Blogs</span></a>
-                        </li>   
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{ route('profile.index')}} " aria-expanded="false">
+                            <i class="nav-icon fas fa-cog"></i><span class="hide-menu">&nbsp&nbsp&nbspFootball Club Setting</span></a>
+                        </li> 
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="#" aria-expanded="false">
+                            <i class="nav-icon fas fa-user"></i><span class="hide-menu">&nbsp&nbsp&nbspUser</span></a>
+                        </li> 
+                        <li class="text-center mt-5">
+                            <a href="{{ route('home') }}" class="btn btn-primary text-white" target="_blank">
+                              <p class="mb-0">
+                                View Website
+                              </p>
+                            </a>                    
+                          </li>
                     </ul>
 
                 </nav>

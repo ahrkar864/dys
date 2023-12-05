@@ -64,11 +64,14 @@
                 <li @if(Route::currentRouteName() == 'home') class="active" @endif>
                     <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
+                <li @if(Route::currentRouteName() == 'about') class="active" @endif>
+                  <a href="{{ route('about') }}" class="nav-link">About</a>
+                </li>
                 <li @if(Route::currentRouteName() == 'matches') class="active" @endif>
                     <a href="{{ route('matches') }}" class="nav-link">Matches</a>
                 </li>
                 <li @if(Route::currentRouteName() == 'blog') class="active" @endif>
-                    <a href="{{ route('blog') }}" class="nav-link">Blog</a>
+                    <a href="{{ route('blog') }}" class="nav-link">Blogs</a>
                 </li>
                 <li @if(Route::currentRouteName() == 'players') class="active" @endif>
                     <a href="{{ route('players') }}" class="nav-link">Players</a>

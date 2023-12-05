@@ -7,8 +7,7 @@
         <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 mx-auto text-center">
-          <h1 class="text-white">Matches</h1>
-          <p>We Play By Heart.</p>
+          <h1 class="text-white">We Play By Heart.</h1>
         </div>
       </div>
         </div>

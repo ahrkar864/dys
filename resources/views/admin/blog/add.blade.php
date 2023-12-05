@@ -8,7 +8,7 @@
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
-                    <h3 class="page-title mb-0 p-0">Blog Table</h3>
+                    <h3 class="page-title mb-0 p-0">Create Blog</h3>
                 </div>
                 <div class="col-md-6 col-4 align-self-center">
                     <div class="text-end upgrade-btn">
@@ -31,29 +31,29 @@
             <!-- ============================================================== -->
             <div class="row">
                 <!-- column -->
-                <div class="col-sm-12">
+                <div class="col-lg-8 col-xlg-9 col-md-7">
                     <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table user-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0">title</th>
-                                            <th class="border-top-0">About</th>
-                                            <th class="border-top-0">Date</th>
-                                            <th class="border-top-0">Video Youtube Link</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form class="form-horizontal form-material mx-2" method="POST" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">title*</label>
+                                    <input type="text" name="title" class="form-control ps-0 form-control-line">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">About*</label>
+                                    <input type="text" name="about" class="form-control ps-0 form-control-line">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Date*</label>
+                                    <input type="date" name="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Video Youtube link*</label>
+                                    <input type="text" name="video" class="form-control ps-0 form-control-line">
+                                </div>
+                                <button class="btn btn-primary" type="submit">Add Blog</button>
+                            </form>
                         </div>
                     </div>
                     <div class="pagination">

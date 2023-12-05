@@ -12,10 +12,11 @@
                 </div>
                 <div class="col-md-6 col-4 align-self-center">
                     <div class="text-end upgrade-btn">
-                        <a href="{{ route('blogs.create')}}"
+                        <a href=""
                             class="btn btn-success d-none d-md-inline-block text-white">Add new Blog</a>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -38,16 +39,12 @@
                                 <table class="table user-table">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">title</th>
-                                            <th class="border-top-0">About</th>
-                                            <th class="border-top-0">Date</th>
-                                            <th class="border-top-0">Video Youtube Link</th>
+                                            <th class="border-top-0">name</th>
+                                            <th class="border-top-0">email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                             <td></td>
                                         </tr>
