@@ -23,6 +23,10 @@
     <link href="{{ asset('dashboard/assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('dashboard/css/style.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
+
+
     
     <style>
         .dys_logo {
@@ -33,6 +37,9 @@
         .player {
             font-weight: bold;
         }
+        /* .dys-button{
+            background-color: #a16023;
+        } */
     </style>
 </head>
 
@@ -140,7 +147,10 @@
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('admin_dashboard') }}" aria-expanded="false"><i class="mdi me-2 mdi-gauge"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
+                                    class="hide-menu">Dashboard</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('profile.index')}} " aria-expanded="false"><i class="nav-icon fas fa-cog"></i><span class="hide-menu">&nbsp&nbsp&nbspFootball Club Setting</span></a>
+                        </li> 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('players.index') }}" aria-expanded="false"><i class="mdi me-2 mdi-account-check"></i><span
                                     class="hide-menu">Players</span></a>
@@ -154,10 +164,6 @@
                                 class="hide-menu">Blogs</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="{{ route('profile.index')}} " aria-expanded="false">
-                            <i class="nav-icon fas fa-cog"></i><span class="hide-menu">&nbsp&nbsp&nbspFootball Club Setting</span></a>
-                        </li> 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="#" aria-expanded="false">
                             <i class="nav-icon fas fa-user"></i><span class="hide-menu">&nbsp&nbsp&nbspUser</span></a>
                         </li> 
@@ -167,7 +173,7 @@
                                 View Website
                               </p>
                             </a>                    
-                          </li>
+                        </li>
                     </ul>
 
                 </nav>

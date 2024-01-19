@@ -31,6 +31,10 @@
     .login, .register {
       margin-top: 200px;
     }
+    .player-img {
+        width: 200px;
+        height: 250px;
+    }
   </style>
 
 </head>
@@ -71,7 +75,7 @@
                     <a href="{{ route('matches') }}" class="nav-link">Matches</a>
                 </li>
                 <li @if(Route::currentRouteName() == 'blog') class="active" @endif>
-                    <a href="{{ route('blog') }}" class="nav-link">Blogs</a>
+                    <a href="{{ route('blogs') }}" class="nav-link">Blogs</a>
                 </li>
                 <li @if(Route::currentRouteName() == 'players') class="active" @endif>
                     <a href="{{ route('players') }}" class="nav-link">Players</a>
@@ -119,19 +123,19 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="widget mb-3">
-              <h3>News</h3>
+              <h3></h3>
             </div>
           </div>
           <div class="col-lg-3">
             <div class="widget mb-3">
-              <h3>Tickets</h3>
+              <h3></h3>
             </div>
           </div>
           <div class="col-lg-3">
             <div class="widget mb-3">
-              <h3>Matches</h3>
+              <h3></h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Alone Sit Myin Stadium(every 2 week at monday)</a></li>
+                <li></li>
               </ul>
             </div>
           </div>
@@ -140,9 +144,9 @@
             <div class="widget mb-3">
               <h3>Social</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Telegram</a></li>
-                <li><a href="#">youtube</a></li>
+                <li><a href="{{ $all_profile_club_information->facebook_link }}">Favebook</a></li>
+                <li><a href="{{ $all_profile_club_information->telegram_link }}">Telegram</a></li>
+                <li><a href="{{ $all_profile_club_information->youtube_link }}">Youtube</a></li>
               </ul>
             </div>
           </div>
@@ -153,13 +157,11 @@
           <div class="col-md-12">
             <div class=" pt-5">
               <p>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
+                {{ $all_profile_club_information->copyright }}
                 <script>
                   document.write(new Date().getFullYear());
                 </script> All rights reserved | This template is made with <i class="icon-heart"
-                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">github.com/ahrkar864</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">github.com/ahrkar864</a>    
               </p>
             </div>
           </div>

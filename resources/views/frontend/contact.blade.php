@@ -2,7 +2,15 @@
 
 @section('content')
 
-    <div class="hero overlay" style="background-image: url('images/bg_3.jpg');">
+    <div class="hero overlay" style="background-image: url(
+        @if (!empty($all_profile_club_information->cover_photo) && strpos($all_profile_club_information->cover_photo, 'http') === 0)
+            '{{ asset($all_profile_club_information->cover_photo) }}'
+        @elseif (!empty($all_profile_club_information->cover_photo))
+            '{{ asset('storage/' . $all_profile_club_information->cover_photo) }}'
+        @else
+            '{{ asset('storage/images.jpg') }}'
+        @endif
+        );">
         <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-9 mx-auto text-center">

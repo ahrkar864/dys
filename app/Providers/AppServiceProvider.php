@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Profile;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('layouts.frontend_layouts.index', function($view){
+            $all_profile_club_information = Profile::first();
+            $view->with([
+                'all_profile_club_information' => $all_profile_club_information
+            ]);
+        });
+        Paginator::useBootstrap();
     }
 }

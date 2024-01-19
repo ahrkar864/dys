@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Matches;
 use App\Models\Players;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -49,6 +50,7 @@ class MatchController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif'
         ]);
 
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('matches', 'public');
             $validatedData['image'] = $imagePath;
@@ -79,9 +81,7 @@ class MatchController extends Controller
     public function show()
     {
         // $all_matches = Match::orderBy('created_at', 'desc')->paginate(6);
-        $all_matches = Matches::paginate(4);
-        $lastMatch = Matches::latest()->first();
-        return view("frontend.matches", compact('all_matches','lastMatch'));
+
     }
 
     /**

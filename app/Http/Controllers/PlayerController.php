@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Players;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,9 +16,8 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $all_players = Players::paginate(8);
+        $all_players = Players::paginate(10);
         return view("admin.player.lists", compact('all_players'));
-   
     }
 
     /**
@@ -74,7 +74,6 @@ class PlayerController extends Controller
             $imagePath = $request->file('image')->store('players', 'public');    
             $validatedData['image'] = $imagePath;
         }
-
         $player = new Players([
             'name' => $validatedData['name'],
             'positions' => $validatedData['positions'],
@@ -86,8 +85,8 @@ class PlayerController extends Controller
             'preferred_foot' => $validatedData['preferred_foot'],
             'image' => $validatedData['image'] ?? null, // Use the image if uploaded, or set to null
         ]);
+        
         $player->save();
-
         return redirect()->route('players.index')->with('success', 'Player added successfully.');
     }
 
@@ -97,11 +96,10 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $all_players = Players::paginate(6);
-
-        return view("frontend.players", compact('all_players'));
+        $player = Players::findOrFail($id);
+        return view('admin.player.details', compact('player'));
     }
 
     /**
@@ -202,10 +200,16 @@ class PlayerController extends Controller
             ->with('deletesuccess'. 'Player deleted successfully.');
     }
 
-    public function details($id){
+    // public function details($id){
 
-        $player = Players::findOrFail($id);
+    //     $player = Players::findOrFail($id);
+    //     $all_profile_club_information = Profile::first();
+    //     return view('frontend.player_details', compact('player','all_profile_club_information'));
+    // }
 
-        return view('frontend.player_details', compact('player'));
-    }
+    // public function admindetails($id){
+    //     $player = Players::findOrFail($id);
+    //     return view('admin.player.details', compact('player'));
+    // }
+
 }

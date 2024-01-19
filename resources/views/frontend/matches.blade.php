@@ -3,17 +3,25 @@
 @section('content')
 
 
-    <div class="hero overlay" style="background-image: url('images/bg_3.jpg');">
+    <div class="hero overlay" style="background-image: url(
+        @if (!empty($all_profile_club_information->cover_photo) && strpos($all_profile_club_information->cover_photo, 'http') === 0)
+            '{{ asset($all_profile_club_information->cover_photo) }}'
+        @elseif (!empty($all_profile_club_information->cover_photo))
+            '{{ asset('storage/' . $all_profile_club_information->cover_photo) }}'
+        @else
+            '{{ asset('storage/images.jpg') }}'
+        @endif
+        );">
         <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-5 mx-auto text-center">
-          <h1 class="text-white">We Play By Heart.</h1>
+          <h1 class="text-white">{{ ucwords(strtolower($all_profile_club_information->matches_caption)) }}</h1>
         </div>
       </div>
         </div>
     </div>
     {{-- @foreach ($all_matches as $matches) --}}
-        {{-- <div class="container">
+        <div class="container">
             <div class="row">
             <div class="col-lg-12">
                 
@@ -25,28 +33,30 @@
                     <h3>DYS</h3>
                     <ul class="list-unstyled">
                         @foreach ($lastMatch->score_player as $key => $item)
-                        <li>{{ $item }}</li>
-                    @endforeach
-                        <li></li>
+                            <li>{{ $item }}</li>
+                        @endforeach
                     </ul>
                     </div>
                 </div>
                 <div class="team-2 w-50">
                     <div class="team-details w-100 text-center">
-                    <img style="border-radius:50px;" src="{{ asset('storage/' . $lastMatch->image) }}" alt="Image" class="img-fluid">
+                    @if(!empty($lastMatch->image) && strpos($lastMatch->image, 'http') === 0)
+                        <img style="border-radius:50px;" src="{{ asset($lastMatch->image) }}" alt="Image" class="img-fluid">
+                    @elseif (!empty($lastMatch->image))
+                        <img style="border-radius:50px;" src="{{ asset('storage/' . $lastMatch->image) }}" alt="Image" class="img-fluid">
+                    @else
+                        <img style="border-radius:50px;" src="{{ asset('storage/images.jpg') }}" alt="Image" class="img-fluid">
+                    @endif
                     <h3>{{ $lastMatch->vs_team_name; }}</h3>
                     <ul class="list-unstyled">
-                        <li>Macauly Green (3)</li>
-                        <li>Arham Stark (8)</li>
-                        <li>Stephan Murillo (9)</li>
-                        <li>Ned Ritter (5)</li>
+                        <li></li>
                     </ul>
                     </div>
                 </div>
                 </div>
             </div>
             </div>
-        </div> --}}
+        </div>
         <div class="site-section bg-dark">
             <div class="container">
                 <div class="row">
@@ -66,16 +76,20 @@
                                             <ul class="list-unstyled">
                                                 @foreach ($matches->score_player as $key => $item)
                                                     <li>{{ $item }}</li>
-                                                @endforeach                              
+                                                @endforeach                             
                                             </ul>
                                         </div>
                                         <span class="vs"><span>VS</span></span>
                                         <div class="team-2 text-center">
-                                            <img class="site-logo-img" src="{{ asset('storage/' . $matches->image) }}" alt="Image">
+                                            @if (!empty($matches->image) && strpos($matches->image, 'http') === 0)
+                                                <img style="border-radius:50px;" src="{{ asset($matches->image) }}" alt="Image" class="site-logo-img">
+                                            @elseif (!empty($matches->image))
+                                                <img style="border-radius:50px;" src="{{ asset('storage/' . $matches->image) }}" alt="Image" class="site-logo-img">
+                                            @else
+                                                <img style="border-radius:50px;" src="{{ asset('storage/images.jpg') }}" alt="Image" class="site-logo-img">
+                                            @endif
                                             <h3>{{ $matches->vs_team_name }}</h3>
                                             <ul class="list-unstyled">
-                                                <li>.</li>
-                                                <li>.</li>
                                                 <li>.</li>
                                                 <li>.</li>
                                             </ul>
@@ -83,7 +97,6 @@
                                     </div>
                                     </div>
                                 </div>
-    
                                 <div class="text-center widget-vs-contents mb-4">
                                     <h4>{{ $matches->place }}</h4>
                                     <p class="mb-5">

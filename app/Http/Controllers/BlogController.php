@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.lists');
+        $all_blogs = Blog::all();
+        return view('admin.blog.lists', compact('all_blogs'));
     }
 
     /**
@@ -34,14 +36,26 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'about' => 'required|string|max:255',
+            'date' => 'required|date',
+            'video' => 'required|url',
+            'description' => 'required|string'
+        ]);
 
-        // $validatedData = $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'about' => 'required|string|max:255',
-        //     'date' => 'required|date',
-        //     'video' => 'required|string|max:255' 
-        // ]);
+        $blog = new Blog([
+            'title' => $validatedData['title'],
+            'about' => $validatedData['about'],
+            'date' => $validatedData['date'],
+            'video' => $validatedData['video'],
+            'description' => $validatedData['description']
+        ]);
+
+        $blog->save();
+
+        return redirect()->route('blogs.index')->with('success', 'New Blog added successfully.');
+
     }
 
     /**

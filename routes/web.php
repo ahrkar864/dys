@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Matches;
+use App\Models\Profile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckUserRole;
 use App\Http\Controllers\BlogController;
@@ -8,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,41 +24,30 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+Route::get('/', [FrontendController:: class, 'home'])->name('home');
+Route::get('/about', [FrontendController:: class, 'about'])->name('about');
+Route::get('/matches', [FrontendController:: class, 'matches'])->name('matches');
+Route::get('/contact', [FrontendController:: class, 'contact'])->name('contact');
+Route::get('/players', [FrontendController:: class, 'players'])->name('players');
+Route::get('/blogs', [FrontendController:: class, 'blogs'])->name('blogs');
+Route::get('/players/details/{id}', [FrontendController::class, 'playerDetails'])->name('playersdetails');
 
-Route::get('/matches', function () {
-    return view('frontend.matches');
-})->name('matches');
+// Route::get('/blog', function () {
+//     $all_profile_club_information = Profile::first();
+//     return view('frontend.blogs', compact('all_profile_club_information'));
+// })->name('blog');
 
-Route::get('/blog', function () {
-    return view('frontend.blogs');
-})->name('blog');
+// Route::get('/blog/details', function() {
+//     return view('frontend.blogs_details');
+// })->name('blogdetails');
 
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('contact');
+// Route::get('/admin/player/list', function () {
+//     return view('admin.player.lists');
+// })->name('admin_players_view');
 
-Route::get('/blog/details', function() {
-    return view('frontend.blogs_details');
-})->name('blogdetails');
-
-Route::get('/about', function() {
-    return view('frontend.about');
-})->name('about');
-
-Route::get('/players',[PlayerController::class, 'show'])->name('players');
-Route::get('/matches',[MatchController::class, 'show'])->name('matches');
-Route::get('/players/details/{id}', [PlayerController::class, 'details'])->name('playersdetails');
-
-Route::get('/admin/player/list', function () {
-    return view('admin.player.lists');
-})->name('admin_players_view');
-
-Route::get('/admin/player/add', function () {
-    return view('admin.player.add');
-})->name('admin_players_add');
+// Route::get('/admin/player/add', function () {
+//     return view('admin.player.add');
+// })->name('admin_players_add');
 
 // Route::get('/admin/profile', function () {
 //     return view('admin.profile');
@@ -68,6 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 });
 
 Auth::routes();
+    
 Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin_dashboard');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user_dashboard');
 

@@ -10,12 +10,6 @@
                 <div class="col-md-6 col-8 align-self-center">
                     <h3 class="page-title mb-0 p-0">Create Blog</h3>
                 </div>
-                <div class="col-md-6 col-4 align-self-center">
-                    <div class="text-end upgrade-btn">
-                        <a href="{{ route('blogs.create')}}"
-                            class="btn btn-success d-none d-md-inline-block text-white">Add new Blog</a>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -38,19 +32,48 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">title*</label>
-                                    <input type="text" name="title" class="form-control ps-0 form-control-line">
+                                    <input type="text" name="title" class="form-control ps-0 form-control-line @error('title') is-invalid  @enderror" value="{{ old('title') }}">
+                                    @error('title')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">About*</label>
-                                    <input type="text" name="about" class="form-control ps-0 form-control-line">
+                                    <input type="text" name="about" class="form-control ps-0 form-control-line @error('about') is-invalid @enderror" value="{{ old('about') }}">
+                                    @error('about')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">Date*</label>
-                                    <input type="date" name="date" class="form-control">
+                                    <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}">
+                                    @error('date')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12 mb-0">Video Youtube link*</label>
-                                    <input type="text" name="video" class="form-control ps-0 form-control-line">
+                                    <input type="text" name="video" class="form-control ps-0 form-control-line @error('video') is-invalid @enderror" value="{{ old('video') }}">
+                                    @error('video')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 mb-0">Description*</label>
+                                    <textarea name="description" class="form-control ps-0 form-control-line @error('description') is-invalid @enderror" cols="30" rows="10">{{ old('description') }}</textarea>
+                                    @error('description')
+                                        <span class="invalid-feedback" role="alert">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                 </div>
                                 <button class="btn btn-primary" type="submit">Add Blog</button>
                             </form>

@@ -1,11 +1,19 @@
 @extends('layouts.frontend_layouts.index')
 
 @section('content')
-    <div class="hero overlay" style="background-image: url('images/bg_3.jpg');">
+    <div class="hero overlay" style="background-image: url(
+        @if (!empty($all_profile_club_information->cover_photo) && strpos($all_profile_club_information->cover_photo, 'http') === 0)
+            '{{ asset($all_profile_club_information->cover_photo) }}'
+        @elseif (!empty($all_profile_club_information->cover_photo))
+            '{{ asset('storage/' . $all_profile_club_information->cover_photo) }}'
+        @else
+            '{{ asset('storage/images.jpg') }}'
+        @endif
+        );">
         <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 mx-auto text-center">
-            <h1 class="text-white">All of Our Owns</h1>
+            <h1 class="text-white">{{ ucwords(strtolower($all_profile_club_information->players_caption)) }}</h1>
             </div>
         </div>
         </div>
@@ -19,9 +27,9 @@
         </div>
         <div class="row">
             @foreach ($all_players as $all_player)
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-3 mb-4">
                     <div class="custom-media d-block">
-                    <div class="img mb-4">
+                    <div class="player-img img mb-4">
                     @if (!empty($all_player->image) && strpos($all_player->image, 'http') === 0)
                         <a href="{{ route('playersdetails', $all_player->id) }}"><img src="{{ $all_player->image }}" alt="Image" class="img-fluid"></a>
                     @elseif (!empty($all_player->image))
@@ -41,7 +49,7 @@
                                 @endif
                             @endforeach
                         </span>
-                        <p><a href="{{ route('playersdetails', $all_player->id)}}">Read more</a></p>
+                        <p><a href="{{ route('playersdetails', $all_player->id)}}">View Details</a></p>
                     </div>
                     </div>
                 </div>

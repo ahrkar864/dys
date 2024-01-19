@@ -13,7 +13,7 @@
                 <div class="col-md-6 col-4 align-self-center">
                     <div class="text-end upgrade-btn">
                         <a href="{{ route('blogs.create')}}"
-                            class="btn btn-success d-none d-md-inline-block text-white">Add new Blog</a>
+                            class="btn btn-primary d-none d-md-inline-block text-white">Add new Blog</a>
                     </div>
                 </div>
             </div>
@@ -41,16 +41,20 @@
                                             <th class="border-top-0">title</th>
                                             <th class="border-top-0">About</th>
                                             <th class="border-top-0">Date</th>
+                                            <th class="border-top-0">Description</th>
                                             <th class="border-top-0">Video Youtube Link</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($all_blogs as $item)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->about }}</td>
+                                            <td>{{ $item->date }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>{{ $item->video }}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

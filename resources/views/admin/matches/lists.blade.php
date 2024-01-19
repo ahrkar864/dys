@@ -13,7 +13,7 @@
                 <div class="col-md-6 col-4 align-self-center">
                     <div class="text-end upgrade-btn">
                         <a href="{{ route('matches.create') }}"
-                            class="btn btn-success d-none d-md-inline-block text-white">Add Match</a>
+                            class="btn btn-primary d-none d-md-inline-block text-white">Add Match</a>
                     </div>
                 </div>
                 @if(session('success'))
@@ -75,15 +75,23 @@
                                             <td>{{ $item->take_goal }}</td>
                                             <td>{{ $item->give_goal }}</td>
                                             <td>
-                                                @if($item->image)
+
+                                                @if(!empty($item->image) && strpos($item->image, 'http') === 0 )
+                                                    <img src="{{ asset($item->image) }}" alt="{{ $item->name }}" width="50">
+                                                @elseif (!empty($item->image))
                                                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
                                                 @else
                                                     No Image
                                                 @endif
+                                                {{-- @if($item->image)
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
+                                                @else
+                                                    No Image
+                                                @endif --}}
                                             </td>
                                             <td>
-                                                <a href="{{ route('matches.edit', $item->id) }}" class="btn btn-default">Edit</a>
-                                                <a href="{{ route('matches.destroy', $item->id) }}"                                                      onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this match?')){ document.getElementById('delete-form-{{ $item->id }}').submit(); }" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('matches.edit', $item->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('matches.destroy', $item->id) }}"                                                      onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this match?')){ document.getElementById('delete-form-{{ $item->id }}').submit(); }" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                 <form id="delete-form-{{ $item->id }}" action="{{ route('matches.destroy', $item->id) }}" method="POST" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')

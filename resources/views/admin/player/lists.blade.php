@@ -1,9 +1,6 @@
 @extends('layouts.admin_layouts.index')
 
 @section('content')
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-md-6 col-8 align-self-center">
@@ -12,7 +9,7 @@
                 <div class="col-md-6 col-4 align-self-center">
                     <div class="text-end upgrade-btn">
                         <a href="{{ route('players.create') }}"
-                            class="btn btn-success d-none d-md-inline-block text-white">Add new player</a>
+                            class="btn btn-primary d-none d-md-inline-block text-white">Add new player</a>
                     </div>
                 </div>
 
@@ -25,17 +22,7 @@
 
             </div>
         </div>
-
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Start Page Content -->
-            <!-- ============================================================== -->
             <div class="row">
                 <!-- column -->
                 <div class="col-sm-12">
@@ -52,29 +39,14 @@
                                     <tbody>
                                         @foreach ($all_players as $item)
                                             <tr>
-                                                <td>{{ $item->name }}</td>
-                                                {{-- <td>
-                                                    @foreach ($item->positions as $key => $value)
-                                                        {{ $value }}
-                                                        @if ($key < count($item->positions) - 1)
-                                                        /
-                                                        @endif
-                                                    @endforeach
-                                                    {{-- {{ $item->positions }} --}}
-                                                {{-- <td>
-                                                    @if($item->image)
-                                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" width="50">
-                                                    @else
-                                                        No Image
-                                                    @endif
-                                                </td> --}}
-                                                <td>
-                                                    {{-- <a href="{{ route('playersdetails', $all_player->id)}}" class="btn btn-success"><i class="fas fa-eye"></i></a> --}}
-                                                    <a href="" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                                    <a href="{{ route('players.edit', $item->id) }}" class="btn btn-default"> <i class="fas fa-edit"></i> </a> 
+                                                <td style="width: 80%;">{{ $item->name }}</td>
+                                                <td style="width: 20%;">
+                                                    <a href="{{ route('players.show', $item->id) }}" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                                    <a href="{{ route('players.edit', $item->id) }}" class="btn btn-sm btn-primary"> <i class="fas fa-edit"></i> </a>
+                                                    <a href="{{ route('playersdetails', $item->id ) }}" class="btn btn-sm btn-dark" target="_blank"><i class="fas fa-link"></i></a> 
                                                     <a href="{{ route('players.destroy', $item->id) }}"
                                                         onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this player?')){ document.getElementById('delete-form-{{ $item->id }}').submit(); }"
-                                                        class="btn btn-danger"><i class="fas fa-trash"></i> </a>
+                                                        class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> </a>
                                                     <form id="delete-form-{{ $item->id }}" action="{{ route('players.destroy', $item->id) }}" method="POST" style="display: none;">
                                                         @csrf
                                                         @method('DELETE')
@@ -88,23 +60,9 @@
                         </div>
                     </div>
                     <div class="pagination">
-                        {{ $all_players->links('pagination.custom') }}
+                        {{ $all_players->links(); }}                  
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <!-- ============================================================== -->
-            <!-- End Right sidebar -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
 @endsection

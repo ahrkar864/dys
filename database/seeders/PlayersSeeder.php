@@ -23,7 +23,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '2000-09-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/Tm8nCpM/unnamed.jpg'
+            'image' => 'https://i.ibb.co/Ks3xtVD/dys-1.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -35,7 +35,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '1994-09-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/TtWvW93/unnamed-4.jpg'
+            'image' => 'https://i.ibb.co/1QLgT11/dys-3.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -47,7 +47,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '1994-09-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/b67xbDw/unnamed-1.jpg'
+            'image' => 'https://i.ibb.co/CJSFKch/dys-5.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -60,7 +60,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '2000-08-04',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/0FLsynw/dys-6.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -73,7 +73,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '2001-08-04',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/Y8hY8w4/dys-7.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -86,7 +86,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '1995-08-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/NxXnyMH/unnamed-2.jpg'
+            'image' => 'https://i.ibb.co/wcPwtbg/dys-8.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -98,7 +98,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '1997-08-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/tqgtHm2/unnamed-3.jpg'
+            'image' => 'https://i.ibb.co/nwqcNXN/dys-9.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -110,7 +110,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '2001-08-04',
             'preferred_foot' => 'left',
-            'image' => 'https://i.ibb.co/pvk3GFM/unnamed-6.jpg'
+            'image' => 'https://i.ibb.co/ZznCyhq/dys-10.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -122,7 +122,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '2001-08-04',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/crXQpVP/dys-11.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -134,7 +134,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '2002-08-04',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/V95j6jH/dys-12.jpg'
         ]);
 
 
@@ -147,7 +147,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '1997-08-04',
             'preferred_foot' => 'right',
-            'image' => 'https://i.ibb.co/JvQjQKW/unnamed-7.jpg'
+            'image' => 'https://i.ibb.co/ggCN1Kn/dys-15.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -172,7 +172,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '2002-08-04',
             'preferred_foot' => 'left',
-            'image' => ''
+            'image' => 'https://i.ibb.co/sKQYnqS/dys-17.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -184,7 +184,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '2001-08-04',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/MkTWcxL/dys-18.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -220,7 +220,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.90',
             'dob' => '1999-04-16',
             'preferred_foot' => 'left',
-            'image' => ''
+            'image' => 'https://i.ibb.co/DrcjdKm/dys-29.jpg'
         ]);
 
         DB::table('players')->insert([
@@ -292,7 +292,7 @@ class PlayersSeeder extends Seeder
             'height' => '1.70',
             'dob' => '2001-04-16',
             'preferred_foot' => 'right',
-            'image' => ''
+            'image' => 'https://i.ibb.co/cTxKDJG/dys-72.jpg'
         ]);
 
         DB::table('players')->insert([
