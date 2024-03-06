@@ -32,6 +32,7 @@ Route::get('/players', [FrontendController:: class, 'players'])->name('players')
 Route::get('/blogs', [FrontendController:: class, 'blogs'])->name('blogs');
 Route::get('/players/details/{id}', [FrontendController::class, 'playerDetails'])->name('playersdetails');
 
+
 // Route::get('/blog', function () {
 //     $all_profile_club_information = Profile::first();
 //     return view('frontend.blogs', compact('all_profile_club_information'));
